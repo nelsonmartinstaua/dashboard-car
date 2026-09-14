@@ -172,12 +172,6 @@
 
         /* SITUAÇÃO & UNIDADES */
         .sec-header-flex { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.9rem; flex-wrap: wrap; }
-        .unit-filter-bar { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-        .uf-label { font-size: 0.74rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-        .unit-pills { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-        .upill { padding: 0.32rem 0.75rem; border-radius: 20px; border: 1px solid #d6d0c0; background: var(--track-bg); color: var(--gray); font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        .upill:hover { color: var(--title-dark); border-color: var(--g1); }
-        .upill.active { background: var(--g1); color: #ffffff; border-color: var(--g1); box-shadow: 0 2px 8px rgba(4,78,57,0.25); }
 
         .situ-wrap { display: flex; flex-direction: column; gap: 6px; }
         .situ-sel {
@@ -6078,18 +6072,6 @@ var DRIVE_DATA = {
     <!-- Executive Delivery Summary & Unit Selector -->
     <div class="sec-header-flex">
         <div class="sec-label">📊 Visão Geral de Entregas do Mês</div>
-        <div class="unit-filter-bar">
-            <span class="uf-label">🏨 Unidade:</span>
-            <div class="unit-pills" id="unit-pills">
-                <button class="upill active" onclick="setUnitFilter('Todas', this)">Todas</button>
-                <button class="upill" onclick="setUnitFilter('Caeté', this)">Caeté</button>
-                <button class="upill" onclick="setUnitFilter('Atibaia', this)">Atibaia</button>
-                <button class="upill" onclick="setUnitFilter('Araxá', this)">Araxá</button>
-                <button class="upill" onclick="setUnitFilter('Alexânia', this)">Alexânia</button>
-                <button class="upill" onclick="setUnitFilter('Alegro', this)">Alegro</button>
-                <button class="upill" onclick="setUnitFilter('Mais Tauá', this)">Mais Tauá</button>
-                <button class="upill" onclick="setUnitFilter('João Pessoa', this)">João Pessoa</button>
-            </div>
         </div>
     </div>
 
@@ -6300,14 +6282,6 @@ function upsertRecord(rec) {
 
 /* ── Unit Filter & Real-Time Delivery Stats ── */
 let currentUnitFilter = 'Todas';
-
-function setUnitFilter(unit, btn) {
-    currentUnitFilter = unit;
-    document.querySelectorAll('.upill').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-    updateDeliveryStats();
-    filterTableByUnit();
-}
 
 function updateDeliveryStats() {
     const allRecords = loadData().records.filter(r => Number(r.year) === Number(viewYear) && Number(r.month) === Number(viewMonth));
