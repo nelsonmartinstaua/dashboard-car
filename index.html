@@ -6837,38 +6837,22 @@ function openFechModal(fechId) {
                 <div>
                     <div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;opacity:0.75;margin-bottom:0.25rem">📋 Total de Chamados no Mês</div>
                     <div style="font-size:2rem;font-weight:900;line-height:1">${total.toLocaleString('pt-BR')}</div>
-                    <div style="font-size:0.7rem;opacity:0.8;margin-top:0.25rem">${resps.length} resolvedores · ${unids.length} unidades · ${tipos.length} tipos</div>
+                    <div style="font-size:0.7rem;opacity:0.8;margin-top:0.25rem">${resps.length} resolvedores · ${tipos.length} tipos</div>
                 </div>
                 <div style="font-size:2.5rem;opacity:0.2">📊</div>
             </div>
 
-            <!-- Grid 2 colunas: Resolvedor + Unidade -->
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem">
-                <!-- Tabela por Resolvedor -->
-                <div style="background:#fff;border:1px solid #e2e8f0;border-radius:13px;overflow:hidden">
-                    <div style="padding:0.6rem 0.85rem;background:#f0fdf4;font-weight:700;font-size:0.75rem;color:#166534;border-bottom:1px solid #bbf7d0">👤 Por Resolvedor</div>
-                    <table style="width:100%;border-collapse:collapse">
-                        <thead><tr style="background:#faf8f3;color:#475569;font-size:0.62rem;text-transform:uppercase;text-align:left">
-                            <th style="padding:0.45rem 0.75rem">Resolvedor</th>
-                            <th style="padding:0.45rem 0.5rem;text-align:center">Qtd</th>
-                            <th style="padding:0.45rem 0.75rem">Participação</th>
-                        </tr></thead>
-                        <tbody>${respRows}</tbody>
-                    </table>
-                </div>
-
-                <!-- Tabela por Unidade -->
-                <div style="background:#fff;border:1px solid #e2e8f0;border-radius:13px;overflow:hidden">
-                    <div style="padding:0.6rem 0.85rem;background:#eff6ff;font-weight:700;font-size:0.75rem;color:#1e40af;border-bottom:1px solid #bfdbfe">🏨 Por Unidade</div>
-                    <table style="width:100%;border-collapse:collapse">
-                        <thead><tr style="background:#faf8f3;color:#475569;font-size:0.62rem;text-transform:uppercase;text-align:left">
-                            <th style="padding:0.45rem 0.75rem">Unidade</th>
-                            <th style="padding:0.45rem 0.5rem;text-align:center">Qtd</th>
-                            <th style="padding:0.45rem 0.75rem">Participação</th>
-                        </tr></thead>
-                        <tbody>${unidRows}</tbody>
-                    </table>
-                </div>
+            <!-- Por Resolvedor (largura total) -->
+            <div style="background:#fff;border:1px solid #e2e8f0;border-radius:13px;overflow:hidden;margin-bottom:0.8rem">
+                <div style="padding:0.6rem 0.85rem;background:#f0fdf4;font-weight:700;font-size:0.75rem;color:#166534;border-bottom:1px solid #bbf7d0">👤 Por Resolvedor</div>
+                <table style="width:100%;border-collapse:collapse">
+                    <thead><tr style="background:#faf8f3;color:#475569;font-size:0.62rem;text-transform:uppercase;text-align:left">
+                        <th style="padding:0.45rem 0.75rem">Resolvedor</th>
+                        <th style="padding:0.45rem 0.5rem;text-align:center">Qtd</th>
+                        <th style="padding:0.45rem 0.75rem">Participação</th>
+                    </tr></thead>
+                    <tbody>${respRows}</tbody>
+                </table>
             </div>
 
             <!-- Tabela por Tipo de Chamado (largura total) -->
